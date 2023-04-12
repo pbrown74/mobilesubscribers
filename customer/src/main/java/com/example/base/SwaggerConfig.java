@@ -16,23 +16,14 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("MobileSubscriber and Customer REST APIs",
-                "APIs for MobileSubscriber and Customer.",
-                "1.0",
-                "Terms of service",
-                new Contact("test", "www.org.com", "test@emaildomain.com"),
-                "License of API",
-                "API license URL",
-                Collections.emptyList());
+        return new ApiInfo("MobileSubscriber and Customer REST APIs", "APIs for MobileSubscriber and Customer.", "1.0",
+                "Terms of service", new Contact("test", "www.org.com", "test@emaildomain.com"), "License of API",
+                "API license URL", Collections.emptyList());
     }
 
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.OAS_30)
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.base"))
-                .paths(PathSelectors.any())
-                .build();
+        return new Docket(DocumentationType.OAS_30).apiInfo(apiInfo()).select()
+                .apis(RequestHandlerSelectors.basePackage("com.example.base")).paths(PathSelectors.any()).build();
     }
 }

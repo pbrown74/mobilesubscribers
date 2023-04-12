@@ -10,6 +10,6 @@ import com.example.base.customer.model.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-	List<Customer> findByIdCard(String idCard);
+    List<Customer> findByIdCard(String idCard);
 
 }

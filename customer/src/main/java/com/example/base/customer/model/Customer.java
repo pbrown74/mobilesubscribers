@@ -13,93 +13,93 @@ import javax.persistence.Version;
 @Entity
 @Table(name = "customer")
 public class Customer {
-        
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name="id")
-        private Long id;
 
-		@Version
-        @Column(name="version")
-		private Long version;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-        @Column(name="id_card")
-        private String idCard;
-        
-        @Column(name="name")
-        private String name;
-        
-        @Column(name="surname")
-        private String surname;
-        
-        @Column(name="address")
-        private String address;
+    @Version
+    @Column(name = "version")
+    private Long version;
 
-		public Long getVersion() {
-			return version;
-		}
+    @Column(name = "id_card")
+    private String idCard;
 
-		public void setVersion(Long version) {
-			this.version = version;
-		}
+    @Column(name = "name")
+    private String name;
 
-		public Long getId() {
-			return id;
-		}
+    @Column(name = "surname")
+    private String surname;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+    @Column(name = "address")
+    private String address;
 
-		public String getIdCard() {
-			return idCard;
-		}
+    public Long getVersion() {
+        return version;
+    }
 
-		public void setIdCard(String idCard) {
-			this.idCard = idCard;
-		}
+    public void setVersion(Long version) {
+        this.version = version;
+    }
 
-		public String getName() {
-			return name;
-		}
+    public Long getId() {
+        return id;
+    }
 
-		public void setName(String name) {
-			this.name = name;
-		}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-		public String getSurname() {
-			return surname;
-		}
+    public String getIdCard() {
+        return idCard;
+    }
 
-		public void setSurname(String surname) {
-			this.surname = surname;
-		}
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
 
-		public String getAddress() {
-			return address;
-		}
+    public String getName() {
+        return name;
+    }
 
-		public void setAddress(String address) {
-			this.address = address;
-		}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-		@Override
-		public int hashCode() {
-			return Objects.hash(address, id, idCard, name, surname, version);
-		}
+    public String getSurname() {
+        return surname;
+    }
 
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Customer other = (Customer) obj;
-			return Objects.equals(address, other.address) && Objects.equals(id, other.id)
-					&& Objects.equals(idCard, other.idCard) && Objects.equals(name, other.name)
-					&& Objects.equals(surname, other.surname) && Objects.equals(version, other.version);
-		}
-		
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(address, id, idCard, name, surname, version);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Customer other = (Customer) obj;
+        return Objects.equals(address, other.address) && Objects.equals(id, other.id)
+                && Objects.equals(idCard, other.idCard) && Objects.equals(name, other.name)
+                && Objects.equals(surname, other.surname) && Objects.equals(version, other.version);
+    }
+
 }

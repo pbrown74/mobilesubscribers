@@ -9,26 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] SWAGGER_WHITELIST = {
-            "/v3/api-docs/**",
-            "/swagger-ui/**",
-            "/swagger-ui.html",
-    };
-
+    private static final String[] SWAGGER_WHITELIST = { "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", };
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .cors()
-                .and()
-                .authorizeRequests()
-                .antMatchers(SWAGGER_WHITELIST).permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic()
-                .and()
-                .csrf()
-                .disable();
+        http.cors().and().authorizeRequests().antMatchers(SWAGGER_WHITELIST).permitAll().anyRequest().authenticated()
+                .and().httpBasic().and().csrf().disable();
     }
 
 }

@@ -10,12 +10,12 @@ import com.example.base.mobilesubscriber.model.MobileSubscriber;
 @Repository
 public interface MobileSubscriberRepository extends JpaRepository<MobileSubscriber, Long> {
 
-	List<MobileSubscriber> findByServiceType(String serviceType);
+    List<MobileSubscriber> findByServiceType(String serviceType);
 
-	List<MobileSubscriber> findByServiceStartDate(Long startDate);
+    List<MobileSubscriber> findByServiceStartDate(Long startDate);
 
-	List<MobileSubscriber> findByCustomerIdUser(Long id);
-	
-	List<MobileSubscriber> findByMsisdn(String msisdn);
+    List<MobileSubscriber> findByCustomerIdUser(Long id);
+
+    List<MobileSubscriber> findByMsisdn(String msisdn);
 
 }
