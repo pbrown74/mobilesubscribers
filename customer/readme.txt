@@ -15,7 +15,9 @@ docker load < mobile-subscribers-image.tar
 docker run --name mysqldb --network mobile-subscribers-mysql-net -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=customer-schema -d mysql
 docker run --network mobile-subscribers-mysql-net --name mobile-subscribers-mysql-container -p 8080:8080 mobile-subscribers
 
-I used the latest versions of all software.
+I used the latest versions of all software. I used Docker Desktop to manage the containers more easily. I had to pause the MySQL
+service running locally to be able to use the 3306 port from the MySQL container. I have set up two Docker containers and put them
+in a network so they can communicate.
 
 
 ************************************************************************************************************************************
@@ -30,6 +32,12 @@ the mobile-susbcribers container. For example, you will see something like this:
   Using generated security password: c9ff531a-443d-46ee-933e-6272f38859ad
 
 Once you enter the password, and pass through the basic authentication, subsequent REST API calls are not authenticated again.
+
+These commands are useful to find the logs in the docker container:
+
+  docker ps                   -- this will give you the Container ID of the Spring BOOT server (mobile-subscribers), eg. 09611f75f157
+  docker logs 09611f75f157    -- this will show you the contents of the log file
+  
 
 
 ************************************************************************************************************************************
@@ -182,7 +190,7 @@ I did not use OAUTH, i could not get it working in time. I tried Auth0 but found
 Basic authentication.
 
 Active-Active handling:
-If you start multiple containers then database replication needs to be setup in the backend. A master<->slave relation between
+If you start multiple containers then database replication needs to be setup in the backend. A master<->master relation between
 the first mysql container and the second one, would be needed to allow client code to scale by hitting any backend.
 
 Checking that the test coverage is >80%:
