@@ -5,7 +5,7 @@ README.txt
 
 ************************************************************************************************************************************
 
-1) To install the docker images which you find in the Github alongside the code:
+1) To install the docker images that I will share:
 
 These images were built and tested on a Win64 notebook running Windows 10 Pro (virtualisation enabled in BIOS).
 
